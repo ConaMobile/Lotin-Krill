@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/def3"
+    tools:context=".MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="@color/def2"
+        app:layout_constraintBottom_toTopOf="@id/adView"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        android:background="@color/def1"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.35"
+        tools:targetApi="lollipop">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/def2"
+            android:fontFamily="@font/allerta"
+            android:gravity="start"
+            android:hint="@string/tap_to_type"
+            android:padding="10dp"
+            android:textColor="@color/white_text"
+            android:textColorHint="@color/text_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/adView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="@color/def2"
+        android:clickable="false"
+        app:layout_constraintBottom_toTopOf="@id/card3"
+        app:layout_constraintWidth_percent="0.9"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintHeight_percent="0.35"
+        tools:targetApi="lollipop">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:padding="10dp"
+                android:scrollbars="none"
+                android:textStyle="bold"
+                android:scrollHorizontally="false"
+                android:text=""
+                android:textColor="@color/white_text"
+                android:textSize="20sp" />
+
+        </ScrollView>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="@color/def2"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        tools:targetApi="lollipop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/def2"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/crd2">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/paste2"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/def2"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintLeft_toRightOf="@id/crd1"
+                app:layout_constraintRight_toLeftOf="@id/crd3">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/copy3"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/def2"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintLeft_toRightOf="@id/crd2"
+                app:layout_constraintRight_toLeftOf="@id/crd4">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clear2"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/def2"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintLeft_toRightOf="@id/crd3"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/about3"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.gms.ads.AdView
+        ads:layout_constraintBottom_toTopOf="@id/card2"
+        ads:layout_constraintTop_toBottomOf="@id/card1"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ID_BANNER">
+    </com.google.android.gms.ads.AdView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
