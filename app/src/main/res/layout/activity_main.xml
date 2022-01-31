@@ -8,7 +8,6 @@
     android:background="@color/def3"
     tools:context=".MainActivity">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/card1"
         android:layout_width="0dp"
@@ -84,7 +83,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="65dp"
         app:cardElevation="0dp"
         app:layout_constraintTop_toBottomOf="@id/card2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -116,6 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/paste2"
+                    android:clickable="false"
                     android:layout_margin="20dp"
                     android:layout_gravity="center"/>
 
@@ -138,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/copy3"
                     android:layout_margin="20dp"
+                    android:clickable="false"
                     android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
@@ -159,6 +160,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/clear2"
                     android:layout_margin="20dp"
+                    android:clickable="false"
                     android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
@@ -180,6 +182,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/about3"
                     android:layout_margin="20dp"
+                    android:clickable="false"
                     android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
@@ -190,14 +193,14 @@
 
 
     <com.google.android.gms.ads.AdView
-        ads:layout_constraintBottom_toTopOf="@id/card2"
-        ads:layout_constraintTop_toBottomOf="@id/card1"
-        ads:layout_constraintLeft_toLeftOf="parent"
-        ads:layout_constraintRight_toRightOf="parent"
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        ads:layout_constraintBottom_toTopOf="@id/card2"
+        ads:layout_constraintTop_toBottomOf="@id/card1"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
         ads:adSize="BANNER"
         ads:adUnitId="@string/ID_BANNER">
     </com.google.android.gms.ads.AdView>

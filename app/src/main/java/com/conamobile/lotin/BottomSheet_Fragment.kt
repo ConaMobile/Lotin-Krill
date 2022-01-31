@@ -15,7 +15,7 @@ import android.content.Intent
 import android.net.Uri
 
 
-class bottom_sheet: BottomSheetDialogFragment() {
+class bottom_sheet : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,9 +31,24 @@ class bottom_sheet: BottomSheetDialogFragment() {
         telegram_username.paintFlags = telegram_username.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
         email_username.setOnClickListener {
-            val emailIntent = Intent(Intent.ACTION_SENDTO)
-            emailIntent.data = Uri.parse("mailto:conamobiledev@gmail.com")
-            startActivity(Intent.createChooser(emailIntent, "Send feedback"))
+
+            val emailIntent = Intent(
+                Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto", "conamobiledev@gmail.com", null
+                )
+            )
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Lotin Kirill - Kirill Lotin app client")
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "")
+            startActivity(Intent.createChooser(emailIntent, "Send email..."))
+
+            //web intent
+//            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://mail.google.com/mail/u/0/#inbox?compose=jrjtXLCPjGKVPCJTKmGvmvJkpPbMFMgXWZzMNMKXDJdsqLrCCWBMqHZxzLNcdzrFlbZJDSnK"))
+//            startActivity(webIntent)
+
+            //email intent
+//            val emailIntent = Intent(Intent.ACTION_SENDTO)
+//            emailIntent.data = Uri.parse("mailto:conamobiledev@gmail.com")
+//            startActivity(Intent.createChooser(emailIntent, "Send feedback"))
         }
 
         telegram_username.setOnClickListener {
@@ -43,7 +58,8 @@ class bottom_sheet: BottomSheetDialogFragment() {
 
         copy_btn.setOnClickListener {
 
-            val myClipboard = getSystemService(requireContext(), ClipboardManager::class.java) as ClipboardManager
+            val myClipboard =
+                getSystemService(requireContext(), ClipboardManager::class.java) as ClipboardManager
             val clip: ClipData = ClipData.newPlainText("Cona Mobile", "conamobiledev@gmail.com")
             Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
 
@@ -52,7 +68,8 @@ class bottom_sheet: BottomSheetDialogFragment() {
 
         copy_btn2.setOnClickListener {
 
-            val myClipboard = getSystemService(requireContext(), ClipboardManager::class.java) as ClipboardManager
+            val myClipboard =
+                getSystemService(requireContext(), ClipboardManager::class.java) as ClipboardManager
             val clip: ClipData = ClipData.newPlainText("Cona Mobile", "@Cona_Mobile")
             Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
 

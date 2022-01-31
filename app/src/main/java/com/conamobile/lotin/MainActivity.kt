@@ -13,6 +13,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import com.google.android.gms.ads.AdView
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val bottomsheetFragment = bottom_sheet()
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
-
+    
         //google ads
         MobileAds.initialize(this) {}
         mAdView = adView
@@ -48,16 +49,23 @@ class MainActivity : AppCompatActivity() {
         //google ads end
 
         edit_text.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {
-            }
+            override fun afterTextChanged(s: Editable) {}
 
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                text_view.text = twocount(edit_text.text.toString())
+
+                val value = s.toString()
+                if (value == "") {
+                    text_view.text = ""
+                }
+            }
 
             @SuppressLint("SetTextI18n")
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
 
                 text_view.text = lotionToKiril(edit_text.text.toString())
 
+                
                 val value = s.toString()
                 if (value == "") {
                     text_view.text = ""
@@ -65,20 +73,32 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        text_view.setOnLongClickListener {
+            if (text_view.text.isNotEmpty()){
+                val clipboard: ClipboardManager =
+                    getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText(label.toString(), text_view.text)
+                clipboard.setPrimaryClip(clip)
+                Snackbar.make(it, "Copied", 650).show()
+            }
+            return@setOnLongClickListener true
+        }
+
         crd1.setOnClickListener {
             val abc = myClipboard?.primaryClip
-            val item = abc?.getItemAt(0)
-            when {
-                item?.text != "" -> {
-                    edit_text.setText(item?.text.toString())
-                    Snackbar.make(it, "Pasted", Snackbar.LENGTH_SHORT).show()
+            if (abc != null) {
+                val item = abc.getItemAt(0)
+                when {
+                    item?.text != "" && item.text != "null" -> {
+                        edit_text.setText(item?.text.toString())
+                        Snackbar.make(it, "Pasted", 650).show()
+                    }
+                    else -> {
+                        Snackbar.make(it, "Empty", 650).show()
+                    }
                 }
-                item.text == null -> {
-                    Snackbar.make(it, "Empty", Snackbar.LENGTH_SHORT).show()
-                }
-                else -> {
-                    Snackbar.make(it, "Empty", Snackbar.LENGTH_SHORT).show()
-                }
+            } else {
+                Snackbar.make(it, "Empty", 650).show()
             }
         }
 
@@ -88,18 +108,18 @@ class MainActivity : AppCompatActivity() {
                     getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip = ClipData.newPlainText(label.toString(), text_view.text)
                 clipboard.setPrimaryClip(clip)
-                Snackbar.make(it, "Copied", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(it, "Copied", 650).show()
             } else {
-                Snackbar.make(it, "Empty", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(it, "Empty", 650).show()
             }
         }
 
         crd3.setOnClickListener {
-            Snackbar.make(it, "Cleared", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it, "Cleared", 650).show()
             if (edit_text.text?.length!! >= 1) {
                 edit_text.text?.clear()
             } else {
-                Snackbar.make(it, "Empty", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(it, "Empty", 650).show()
             }
         }
 
@@ -109,14 +129,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun twocount(lotin2: String): String {
+        var kril2 = ""
+        for (c2 in lotin2) {
+            when {
+                c2.toString() == "ya" -> {
+                    kril2 = "${kril2}я"
+                }
+            }
+        }
+        return kril2
+    }
+
     fun lotionToKiril(lotin: String): String {
         var kril = ""
         for (c in lotin) {
-            val a = lotin.length-2-1
             when {
-
                 //other
-
                 c.toString() == " " -> {
                     kril = "$kril "
                 }
@@ -152,6 +181,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 c.toString() == "'" -> {
                     kril = "${kril}ъ"
+                }
+                c.toString() == "ç" -> {
+                    kril = "${kril}ч"
+                }
+                c.toString() == "Ç" -> {
+                    kril = "${kril}Ч"
                 }
                 c.toString() == "ъ" -> {
                     kril = "${kril}'"

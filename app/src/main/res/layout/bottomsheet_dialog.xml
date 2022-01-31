@@ -25,8 +25,6 @@
         app:layout_constraintTop_toBottomOf="@id/bottom"
         android:paddingTop="25dp"
         android:paddingBottom="20dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/hide_bottom"
         android:layout_height="wrap_content">
 
@@ -35,15 +33,14 @@
             android:id="@+id/company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/company"
             android:scaleType="center"
-            app:layout_constraintTop_toTopOf="parent"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/company"
             app:layout_constraintBottom_toTopOf="@id/email_images"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/company_name"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -56,7 +53,8 @@
             app:layout_constraintLeft_toRightOf="@id/company"
             app:layout_constraintTop_toTopOf="@id/company"
             app:layout_constraintBottom_toBottomOf="@id/company"
-            android:textSize="18sp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:textSize="16sp"
             android:layout_margin="10dp"
             android:textColor="@color/white_text"/>
 
@@ -69,7 +67,7 @@
             app:layout_constraintLeft_toRightOf="@id/company_name"
             app:layout_constraintTop_toTopOf="@id/company"
             app:layout_constraintBottom_toBottomOf="@id/company"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:layout_margin="10dp"
             android:scaleX="0.97"
             android:textColor="@color/white_text"/>
@@ -99,10 +97,11 @@
             app:layout_constraintLeft_toRightOf="@id/email_images"
             app:layout_constraintTop_toTopOf="@id/email_images"
             app:layout_constraintBottom_toBottomOf="@id/email_images"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:fontFamily="@font/allerta"
             android:textStyle="bold"
             android:layout_margin="10dp"
+            android:scaleX="0.95"
             android:textColor="@color/white_text"/>
 
         <TextView
@@ -114,7 +113,7 @@
             app:layout_constraintTop_toTopOf="@id/email_images"
             app:layout_constraintBottom_toBottomOf="@id/email_images"
             android:textSize="16sp"
-            android:scaleX="0.96"
+            android:scaleX="0.9"
             android:layout_margin="10dp"
             android:textColor="@color/white_text"/>
 
@@ -155,7 +154,7 @@
             app:layout_constraintLeft_toRightOf="@id/telegram_images"
             app:layout_constraintTop_toTopOf="@id/telegram_images"
             app:layout_constraintBottom_toBottomOf="@id/telegram_images"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:fontFamily="@font/allerta"
             app:layout_constraintRight_toLeftOf="@id/telegram_username"
             android:textStyle="bold"
@@ -170,7 +169,7 @@
             app:layout_constraintLeft_toRightOf="@id/telegram_name"
             app:layout_constraintTop_toTopOf="@id/telegram_images"
             app:layout_constraintBottom_toBottomOf="@id/telegram_images"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:scaleX="0.96"
             android:layout_margin="10dp"
             android:textColor="@color/white_text"/>
