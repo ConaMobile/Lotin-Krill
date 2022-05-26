@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5981468707",
+    "project_id": "latinkirilltextdetector",
+    "storage_bucket": "latinkirilltextdetector.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5981468707:android:fce25b8729bf7f0ab75996",
+        "android_client_info": {
+          "package_name": "com.conamobile.lotin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5981468707-7eihodo8h2govgpj7p0v3onau773vekb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASB2OLt5MGfCddbr5DISvRpziz3Q-VaEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5981468707-7eihodo8h2govgpj7p0v3onau773vekb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

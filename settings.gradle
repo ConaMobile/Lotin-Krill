@@ -4,6 +4,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url rootProject.projectDir.getAbsolutePath() + '/libraries' }
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "Lotin Kirill - Kirill Lotin"

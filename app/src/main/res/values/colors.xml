@@ -14,4 +14,14 @@
     <color name="white_text">#ECE8E8</color>
     <color name="green">#3BA55D</color>
     <color name="null_color">#00FFFFFF</color>
+    <color name="colorPrimary">#6177FC</color>
+    <color name="yellow_color">#FFC66C</color>
+    <color name="item_color">#3D3E50</color>
+    <color name="blue">#4285F4</color>
+    <color name="black_shade_1">#292D36</color>
+    <color name="yellow">#ffa500</color>
+    <color name="transparent_dark">#4D000000</color>
+    <color name="transparent_black">#1A000000</color>
+    <color name="transparent_card">#A6000000</color>
+    <color name="info_color">#3D3E50</color>
 </resources>
