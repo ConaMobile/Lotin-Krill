@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="700dp"
+    android:background="@drawable/player_bg"
+    android:fitsSystemWindows="true"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="400dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/media_header_bg"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/yellow_color"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/pasteCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/def2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/copyCard"
+            app:shapeAppearanceOverlay="@style/circle">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                android:src="@drawable/paste2" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/copyCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/def2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toRightOf="@id/pasteCard"
+            app:layout_constraintRight_toLeftOf="@id/clearCard"
+            app:shapeAppearanceOverlay="@style/circle">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                android:src="@drawable/copy3" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/clearCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/def2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toRightOf="@id/copyCard"
+            app:layout_constraintRight_toLeftOf="@id/cameraCard"
+            app:shapeAppearanceOverlay="@style/circle">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                android:src="@drawable/clear2" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cameraCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/def2"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toRightOf="@id/clearCard"
+            app:layout_constraintRight_toRightOf="parent"
+            app:shapeAppearanceOverlay="@style/circle">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                android:src="@drawable/scan_camera" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="80dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+        <LinearLayout
+            android:id="@+id/scrollAllColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/def1"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/editTextCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/def2"
+                android:minHeight="300dp"
+                app:cardElevation="0dp"
+                app:shapeAppearanceOverlay="@style/cardCorner">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:fontFamily="@font/allerta"
+                    android:gravity="start"
+                    android:hint="@string/tap_to_type"
+                    android:importantForAutofill="no"
+                    android:inputType="none"
+                    android:minHeight="200dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="false"
+                    android:textColor="@color/white_text"
+                    android:textColorHint="@color/text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/textSizeCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/def2"
+                app:cardElevation="0dp"
+                app:shapeAppearanceOverlay="@style/allSize">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textSizeEditString"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/text_size_edit"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@id/textSizeLinear"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/textSizeLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textSizeEditString"
+                        tools:ignore="UnusedAttribute">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/soo_little_card"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:backgroundTint="@color/def1"
+                                app:cardElevation="0dp"
+                                app:shapeAppearanceOverlay="@style/rounded_corner">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    android:fontFamily="@font/allerta"
+                                    android:gravity="center"
+                                    android:text="@string/soo_little"
+                                    android:textColor="@color/white_text"
+                                    android:textSize="15sp" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/little_card"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:backgroundTint="@color/def1"
+                                app:cardElevation="0dp"
+                                app:shapeAppearanceOverlay="@style/rounded_corner">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/allerta"
+                                    android:gravity="center"
+                                    android:text="@string/little"
+                                    android:textColor="@color/white_text"
+                                    android:textSize="15sp" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/normal_card"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:backgroundTint="@color/yellow_color"
+                                app:cardElevation="0dp"
+                                app:shapeAppearanceOverlay="@style/rounded_corner">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/allerta"
+                                    android:gravity="center"
+                                    android:text="@string/normal"
+                                    android:textColor="@color/white_text"
+                                    android:textSize="15sp" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/big_card"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:backgroundTint="@color/def1"
+                                app:cardElevation="0dp"
+                                app:shapeAppearanceOverlay="@style/rounded_corner">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/allerta"
+                                    android:gravity="center"
+                                    android:text="@string/big"
+                                    android:textColor="@color/white_text"
+                                    android:textSize="15sp" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/soo_big_card"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:backgroundTint="@color/def1"
+                                app:cardElevation="0dp"
+                                app:shapeAppearanceOverlay="@style/rounded_corner">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/allerta"
+                                    android:gravity="center"
+                                    android:text="@string/soo_big"
+                                    android:textColor="@color/white_text"
+                                    android:textSize="15sp" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/nightModeCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/def2"
+                app:cardElevation="0dp"
+                app:shapeAppearanceOverlay="@style/allSize">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/switcher_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/def2"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:src="@drawable/ripple_drawable"
+                        tools:ignore="UnusedAttribute" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/switcher_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:clickable="false"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/allerta"
+                        android:includeFontPadding="false"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:paddingHorizontal="10dp"
+                        android:scrollbarAlwaysDrawHorizontalTrack="true"
+                        android:text="@string/turn_on_night_mode"
+                        android:textColor="@color/yellow"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/switcher_compat"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switcher_compat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on"
+                        android:thumb="@drawable/switcher_thumb"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/switcher_text"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:showText="true"
+                        app:track="@drawable/switcher_track" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/programmerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/def2"
+                android:minHeight="100dp"
+                app:cardElevation="0dp"
+                app:shapeAppearanceOverlay="@style/allSize">
+
+                <com.skydoves.expandablelayout.ExpandableLayout
+                    android:id="@+id/expandable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:expandable_duration="100"
+                    app:expandable_isExpanded="false"
+                    app:expandable_parentLayout="@layout/layout_parent"
+                    app:expandable_secondLayout="@layout/layout_second"
+                    app:expandable_showSpinner="true"
+                    app:expandable_spinner="@drawable/ic_arrow_down"
+                    app:expandable_spinner_animate="true"
+                    app:expandable_spinner_gravity="end"
+                    app:expandable_spinner_margin="20dp"
+                    app:expandable_spinner_size="32dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="circle">
+        <item name="cornerSize">40%</item>
+    </style>
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="allSize">
+        <item name="cornerSize">14%</item>
+    </style>
+    <style name="cardCorner">
+        <item name="cornerSizeTopLeft">0%</item>
+        <item name="cornerSizeTopRight">0%</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+    </style>
+    <style name="rounded_corner">
+        <item name="cornerSize">20dp</item>
+    </style>
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+</resources>
