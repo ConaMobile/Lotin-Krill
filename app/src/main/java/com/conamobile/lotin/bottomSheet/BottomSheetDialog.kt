@@ -5,16 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.conamobile.lotin.R
 import com.conamobile.lotin.activity.CameraXActivity
 import com.conamobile.lotin.activity.TextReaderActivity
-import com.conamobile.lotin.textSaver.TextSaver
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottomsheet_design.*
 
-class BottomSheetDialog: BottomSheetDialogFragment() {
+class BottomSheetDialog : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

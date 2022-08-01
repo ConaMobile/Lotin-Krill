@@ -8,6 +8,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -30,7 +31,7 @@ class TextReaderActivity : AppCompatActivity() {
     private var allPhotos = ArrayList<Uri>()
     private var pickedPhoto: Uri? = null
     private var permissionCheck = false
-    var permissionSplash = 0
+    private var permissionSplash = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +54,6 @@ class TextReaderActivity : AppCompatActivity() {
             .setImageAdapter(GlideAdapter())
             .setMaxCount(1)
             .setMinCount(1)
-            .exceptGif(true)
             .setAllViewTitle(getString(R.string.all_image))
             .textOnNothingSelected(getString(R.string.select_any_image))
             .setPickerSpanCount(3)
@@ -71,20 +71,24 @@ class TextReaderActivity : AppCompatActivity() {
 
     private val photoLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == Activity.RESULT_OK) {
-                allPhotos =
-                    it.data?.getParcelableArrayListExtra(FishBun.INTENT_PATH) ?: arrayListOf()
-                pickedPhoto = allPhotos[0]
-                imageBetaSuccessful.isVisible = true
-                animationView9.isVisible = true
-                permissionCheck = false
-                imageBetaSuccessful.setImageURI(pickedPhoto)
-                detectText(imageBetaSuccessful.drawable.toBitmap())
-            } else if (it.resultCode == Activity.RESULT_CANCELED) {
-                permissionCheck = true
-                finish()
-            } else {
-                finish()
+            when (it.resultCode) {
+                Activity.RESULT_OK -> {
+                    allPhotos =
+                        it.data?.getParcelableArrayListExtra(FishBun.INTENT_PATH) ?: arrayListOf()
+                    pickedPhoto = allPhotos[0]
+                    imageBetaSuccessful.isVisible = true
+                    animationView9.isVisible = true
+                    permissionCheck = false
+                    imageBetaSuccessful.setImageURI(pickedPhoto)
+                    detectText(imageBetaSuccessful.drawable.toBitmap())
+                }
+                Activity.RESULT_CANCELED -> {
+                    permissionCheck = true
+                    finish()
+                }
+                else -> {
+                    finish()
+                }
             }
         }
 
@@ -116,12 +120,11 @@ class TextReaderActivity : AppCompatActivity() {
         val image: InputImage = InputImage.fromBitmap(bitmap, 0)
         val recognizer: TextRecognizer =
             TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
-        val result = recognizer.process(image)
+        recognizer.process(image)
             .addOnSuccessListener { visionText ->
-
                 TextSaver.textSaver = visionText.text
                 TextSaver.textSaverBoolean = true
-                Handler().postDelayed({
+                Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, 300)
 

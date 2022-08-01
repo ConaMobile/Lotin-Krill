@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/OsiyoComputers/.gradle/caches/transforms-3/31856a9331ecf67c15fa50458fe4d0db/transformed/jetified-expandablelayout-1.0.7/res/drawable/ic_arrow_down.xml" value="0.134" />
+        <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v23/splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/alert_text_background.xml" value="0.1125" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/bg_shape.xml" value="0.2703125" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/bottomm.xml" value="0.2703125" />
@@ -22,9 +23,11 @@
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/media_header_bg.xml" value="0.1025" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/player_bg.xml" value="0.1025" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable-v24/splash_screen.xml" value="0.1025" />
+        <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/alert_text_background.xml" value="0.1" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/ic_camera.xml" value="0.134" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1125" />
+        <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/media_header_bg.xml" value="0.1" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/media_header_bg_light.xml" value="0.1125" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/player_bg_light.xml" value="0.1125" />
         <entry key="..\:/Users/OsiyoComputers/AndroidStudioProjects/LotinKirillKirillLotin/app/src/main/res/drawable/player_bg_night.xml" value="0.1125" />
